@@ -84,9 +84,15 @@
             "segments": [
                 {
                     "foreground": "#FFD700",
+                    "foreground_templates": [
+                        "{{ if gt .Code 0 }}#ef5350{{ end }}"
+                    ],
+                    "properties": {
+                        "always_enabled": true
+                    },
                     "style": "plain",
                     "template": "  \u26a1",
-                    "type": "root"
+                    "type": "exit"
                 }
             ],
             "type": "prompt"
