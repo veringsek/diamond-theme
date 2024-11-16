@@ -2,6 +2,14 @@
 
 This is an Oh My Posh theme.
 
+![main](./imgs/main.png)
+
+## Features
+
+![error](./imgs/error.png)
+
+![node](./imgs/node.png)
+
 ## Usage
 
 Follow the official instruction [here](https://ohmyposh.dev/docs/installation/windows) and don't use `Install-Module oh-my-posh` since that is deprecated. Instead, install Oh My Posh by
