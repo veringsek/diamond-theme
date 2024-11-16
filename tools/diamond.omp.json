@@ -13,7 +13,7 @@
         ],
         "newline": true
     },
-    "console_title_template": "{{ if .Root }} ⚡ {{ end }}{{ .UserName }} 📁 {{ .Folder }}",
+    "console_title_template": "{{ if .Root }} ⚡ Admin{{ else }}User{{ end }} 📁 {{ .Folder }}",
     "blocks": [
         {
             "type": "prompt",
@@ -60,7 +60,7 @@
                     "properties": {
                         "cache_duration": "none"
                     },
-                    "template": "{{ .HostName }} ",
+                    "template": "Host ",
                     "foreground": "#0099F8",
                     "background": "#EEEEEE",
                     "type": "text",
@@ -121,7 +121,7 @@
                         "always_enabled": true,
                         "cache_duration": "none"
                     },
-                    "template": "  {{ if .Root }}\uf007{{ else }}\uf2c0{{ end }} {{ .UserName }} ❯ ",
+                    "template": "  {{ if .Root }}\uf007 Admin{{ else }}\uf2c0 User{{ end }} ❯ ",
                     "foreground": "#eeeeee",
                     "type": "text",
                     "style": "plain",
