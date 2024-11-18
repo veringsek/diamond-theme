@@ -1,5 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "version": 3,
+    "console_title_template": "{{ if .Root }} ⚡ {{ end }}{{ .UserName }} 📁 {{ .Folder }}",
     "transient_prompt": {
         "properties": {
             "always_enabled": true
@@ -13,7 +15,6 @@
         ],
         "newline": true
     },
-    "console_title_template": "{{ if .Root }} ⚡ {{ end }}{{ .UserName }} 📁 {{ .Folder }}",
     "blocks": [
         {
             "type": "prompt",
@@ -50,7 +51,7 @@
                     "properties": {
                         "cache_duration": "none"
                     },
-                    "leading_diamond": "\ue0b2",
+                    "leading_diamond": "\uE0B2",
                     "foreground": "#0099F8",
                     "background": "#EEEEEE",
                     "type": "os",
@@ -69,12 +70,12 @@
                 {
                     "properties": {
                         "cache_duration": "none",
-                        "folder_separator_icon": " \ue0b1 ",
+                        "folder_separator_icon": " \uE0B1 ",
                         "style": "full"
                     },
-                    "template": " \ue5ff {{ .Path }} ",
+                    "template": " \uE5FF {{ .Path }} ",
                     "foreground": "#000000",
-                    "powerline_symbol": "\ue0b0",
+                    "powerline_symbol": "\uE0B0",
                     "background": "#0099F8",
                     "type": "path",
                     "style": "powerline"
@@ -85,17 +86,17 @@
                         "fetch_stash_count": true,
                         "fetch_status": true
                     },
-                    "template": " {{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
+                    "template": " {{ .HEAD }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }} ",
                     "foreground": "#193549",
-                    "powerline_symbol": "\ue0b0",
-                    "background": "#D2ff5E",
+                    "powerline_symbol": "\uE0B0",
+                    "background": "#D2FF5E",
                     "type": "git",
                     "style": "powerline",
                     "background_templates": [
-                        "{{ if or (.Working.Changed) (.Staging.Changed) }}#ff9248{{ end }}",
-                        "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#f26d50{{ end }}",
-                        "{{ if gt .Ahead 0 }}#89d1dc{{ end }}",
-                        "{{ if gt .Behind 0 }}#f17c37{{ end }}"
+                        "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
+                        "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#F26D50{{ end }}",
+                        "{{ if gt .Ahead 0 }}#89D1DC{{ end }}",
+                        "{{ if gt .Behind 0 }}#F17C37{{ end }}"
                     ]
                 },
                 {
@@ -122,17 +123,20 @@
                         "cache_duration": "none"
                     },
                     "template": "  {{ if .Root }}\uf007{{ else }}\uf2c0{{ end }} {{ .UserName }} ❯ ",
-                    "foreground": "#eeeeee",
+                    "foreground": "#EEEEEE",
                     "type": "text",
                     "style": "plain",
                     "foreground_templates": [
-                        "{{ if .Root }}#ffe96f{{ end }}"
+                        "{{ if .Root }}#FFE96F{{ end }}"
                     ]
                 }
             ],
             "newline": true
         }
     ],
-    "version": 3,
+    "secondary_prompt": {
+        "foreground": "#EEEEEE",
+        "template": "  <d>\uF4C3 {{ .UserName }}</d> ❯ "
+    },
     "theme_version": "1.0.0"
 }
