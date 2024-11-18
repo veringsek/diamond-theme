@@ -3,17 +3,17 @@
     "version": 3,
     "console_title_template": "{{ if .Root }} ⚡ {{ end }}{{ .UserName }} 📁 {{ .Folder }}",
     "transient_prompt": {
-        "properties": {
-            "always_enabled": true
-        },
-        "template": "\ue5ff {{ .PWD }} \n{{ if .Root }}\uf007{{ else }}\uf2c0{{ end }} {{ .PromptCount }} ❯ ",
-        "foreground": "p:transient",
         "type": "text",
+        "template": "\ue5ff {{ .PWD }} \n{{ if .Root }}\uf007{{ else }}\uf2c0{{ end }} {{ .PromptCount }} ❯ ",
+        "newline": true,
         "style": "plain",
+        "foreground": "p:transient",
         "foreground_templates": [
             "{{ if gt .Code 0 }}p:error{{ end }}"
         ],
-        "newline": true
+        "properties": {
+            "always_enabled": true
+        }
     },
     "blocks": [
         {
@@ -22,94 +22,94 @@
             "newline": true,
             "segments": [
                 {
+                    "type": "python",
+                    "template": " \uE235 {{ .Venv }} ",
+                    "style": "diamond",
+                    "leading_diamond": "\uE0B2",
+                    "foreground": "p:python-fore",
+                    "background": "p:python-back",
                     "properties": {
                         "display_mode": "environment",
                         "fetch_virtual_env": true,
                         "home_enabled": true
-                    },
-                    "foreground": "p:python-fore",
-                    "background": "p:python-back",
-                    "type": "python",
-                    "style": "diamond",
-                    "leading_diamond": "\uE0B2",
-                    "template": " \uE235 {{ .Venv }} "
+                    }
                 },
                 {
+                    "type": "node",
+                    "template": " \uE718 {{ .Full }} ",
+                    "style": "diamond",
+                    "leading_diamond": "\uE0B2",
+                    "foreground": "p:node-fore",
+                    "background": "p:node-back",
                     "properties": {
                         "display_mode": "files",
                         "fetch_package_manager": true,
                         "home_enabled": true
-                    },
-                    "foreground": "p:node-fore",
-                    "background": "p:node-back",
-                    "type": "node",
+                    }
+                },
+                {
+                    "type": "os",
                     "style": "diamond",
                     "leading_diamond": "\uE0B2",
-                    "template": " \uE718 {{ .Full }} "
-                },
-                {
-                    "properties": {
-                        "cache_duration": "none"
-                    },
-                    "leading_diamond": "\uE0B2",
                     "foreground": "p:back",
                     "background": "p:fore",
-                    "type": "os",
-                    "style": "diamond"
-                },
-                {
                     "properties": {
                         "cache_duration": "none"
-                    },
-                    "template": "{{ .HostName }} ",
-                    "foreground": "p:back",
-                    "background": "p:fore",
+                    }
+                },
+                {
                     "type": "text",
-                    "style": "diamond"
+                    "template": "{{ .HostName }} ",
+                    "style": "diamond",
+                    "foreground": "p:back",
+                    "background": "p:fore",
+                    "properties": {
+                        "cache_duration": "none"
+                    }
                 },
                 {
+                    "type": "path",
+                    "template": " \uE5FF {{ .Path }} ",
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "p:fore",
+                    "background": "p:back",
                     "properties": {
                         "cache_duration": "none",
                         "folder_separator_icon": " <transparent><b>\uE0B1</b></> ",
                         "style": "full"
-                    },
-                    "template": " \uE5FF {{ .Path }} ",
-                    "foreground": "p:fore",
-                    "background": "p:back",
-                    "powerline_symbol": "\uE0B0",
-                    "type": "path",
-                    "style": "powerline"
+                    }
                 },
                 {
-                    "properties": {
-                        "cache_duration": "none",
-                        "fetch_stash_count": true,
-                        "fetch_status": true
-                    },
+                    "type": "git",
                     "template": " {{ .HEAD }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }} ",
+                    "style": "powerline",
                     "powerline_symbol": "\uE0B0",
                     "foreground": "p:fore",
                     "background": "p:transient",
-                    "type": "git",
-                    "style": "powerline",
                     "background_templates": [
                         "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
                         "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#F26D50{{ end }}",
                         "{{ if gt .Ahead 0 }}#89D1DC{{ end }}",
                         "{{ if gt .Behind 0 }}#F17C37{{ end }}"
-                    ]
+                    ],
+                    "properties": {
+                        "cache_duration": "none",
+                        "fetch_stash_count": true,
+                        "fetch_status": true
+                    }
                 },
                 {
+                    "type": "text",
+                    "template": " {{ if gt .Code 0 }}💬{{ end }} ",
+                    "style": "powerline",
+                    "powerline_symbol": "\uE0B0",
+                    "foreground": "p:fore",
+                    "background": "p:error",
                     "properties": {
                         "always_enabled": true,
                         "cache_duration": "none"
-                    },
-                    "template": " {{ if gt .Code 0 }}💬{{ end }} ",
-                    "foreground": "p:fore",
-                    "powerline_symbol": "\uE0B0",
-                    "background": "p:error",
-                    "type": "text",
-                    "style": "powerline"
+                    }
                 }
             ]
         },
@@ -118,25 +118,25 @@
             "alignment": "left",
             "segments": [
                 {
+                    "type": "text",
+                    "template": "  {{ if .Root }}\uF007{{ else }}\uF2C0{{ end }} {{ .UserName }} ❯ ",
+                    "style": "plain",
+                    "foreground": "p:fore",
+                    "foreground_templates": [
+                        "{{ if .Root }}p:root{{ end }}"
+                    ],
                     "properties": {
                         "always_enabled": true,
                         "cache_duration": "none"
-                    },
-                    "template": "  {{ if .Root }}\uF007{{ else }}\uF2C0{{ end }} {{ .UserName }} ❯ ",
-                    "foreground": "p:fore",
-                    "type": "text",
-                    "style": "plain",
-                    "foreground_templates": [
-                        "{{ if .Root }}p:root{{ end }}"
-                    ]
+                    }
                 }
             ],
             "newline": true
         }
     ],
     "secondary_prompt": {
-        "foreground": "p:fore",
-        "template": "  <d>\uF4C3 {{ .UserName }}</d> ❯ "
+        "template": "  <d>\uF4C3 {{ .UserName }}</d> ❯ ",
+        "foreground": "p:fore"
     },
     "palette": {
         "fore": "#EEEEEE",
