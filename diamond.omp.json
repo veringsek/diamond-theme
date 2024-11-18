@@ -6,7 +6,6 @@
     "transient_prompt": {
         "type": "text",
         "template": "\uE5FF {{ .PWD }} \n{{ if .Root }}\uF007{{ else }}\uF2C0{{ end }} {{ .PromptCount }} ❯ ",
-        "newline": true,
         "style": "plain",
         "foreground": "p:transient",
         "foreground_templates": [
@@ -20,7 +19,6 @@
         {
             "type": "prompt",
             "alignment": "right",
-            "newline": true,
             "segments": [
                 {
                     "type": "text",
@@ -54,7 +52,6 @@
         {
             "type": "prompt",
             "alignment": "left",
-            "newline": true,
             "segments": [
                 {
                     "type": "python",
