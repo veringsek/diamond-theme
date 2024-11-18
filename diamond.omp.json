@@ -117,6 +117,17 @@
                     }
                 },
                 {
+                    "type": "project",
+                    "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Name }} {{ .Name }}{{ end }}{{ if .Version }} {{.Version}}{{ end }}{{ end }} ",
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "foreground": "p:back",
+                    "background": "p:fore",
+                    "properties": {
+                        "always_enabled": true
+                    }
+                },
+                {
                     "type": "git",
                     "template": " {{ .HEAD }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \uF692 {{ .StashCount }}{{ end }} ",
                     "style": "powerline",
