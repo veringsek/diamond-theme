@@ -110,11 +110,12 @@
                     "foreground": "p:fore",
                     "background": "p:back",
                     "properties": {
-                        "style": "mixed",
+                        "style": "full",
                         "right_format": "<i>%s</i>",
-                        "cache_duration": "none",
+                        "max_depth": 5,
                         "folder_icon": "󰇘",
-                        "folder_separator_icon": " <transparent><b>\uE0B1</b></> "
+                        "folder_separator_icon": " <transparent><b>\uE0B1</b></> ",
+                        "cache_duration": "none"
                     }
                 },
                 {
