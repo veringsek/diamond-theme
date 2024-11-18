@@ -76,9 +76,10 @@
                     "foreground": "p:fore",
                     "background": "p:back",
                     "properties": {
+                        "style": "full",
+                        "right_format": "<i>%s</i>",
                         "cache_duration": "none",
-                        "folder_separator_icon": " <transparent><b>\uE0B1</b></> ",
-                        "style": "full"
+                        "folder_separator_icon": " <transparent><b>\uE0B1</b></> "
                     }
                 },
                 {
