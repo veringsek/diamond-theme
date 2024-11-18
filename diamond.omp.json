@@ -23,6 +23,19 @@
             "newline": true,
             "segments": [
                 {
+                    "type": "text",
+                    "template": " {{ if gt .Code 0 }} [{{ .Code }}] {{ reason .Code }}{{ end }} ",
+                    "style": "diamond",
+                    "leading_diamond": "\uE0B2",
+                    "trailing_diamond": "\uE0B0",
+                    "foreground": "p:fore",
+                    "background": "p:error",
+                    "properties": {
+                        "always_enabled": true,
+                        "cache_duration": "none"
+                    }
+                },
+                {
                     "type": "executiontime",
                     "template": "  {{ .FormattedMs }} ",
                     "newline": true,
@@ -33,8 +46,7 @@
                     "background": "p:warn",
                     "properties": {
                         "threshold": 5000,
-                        "style": "austin",
-                        "always_enabled": true
+                        "style": "austin"
                     }
                 }
             ]
@@ -121,18 +133,6 @@
                         "cache_duration": "none",
                         "fetch_stash_count": true,
                         "fetch_status": true
-                    }
-                },
-                {
-                    "type": "text",
-                    "template": " {{ if gt .Code 0 }}💬{{ end }} ",
-                    "style": "powerline",
-                    "powerline_symbol": "\uE0B0",
-                    "foreground": "p:fore",
-                    "background": "p:error",
-                    "properties": {
-                        "always_enabled": true,
-                        "cache_duration": "none"
                     }
                 }
             ]
