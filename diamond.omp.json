@@ -19,6 +19,28 @@
     "blocks": [
         {
             "type": "prompt",
+            "alignment": "right",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "executiontime",
+                    "template": "  {{ .FormattedMs }} ",
+                    "newline": true,
+                    "style": "diamond",
+                    "leading_diamond": "\uE0B2",
+                    "trailing_diamond": "\uE0B0",
+                    "foreground": "p:fore",
+                    "background": "p:warn",
+                    "properties": {
+                        "threshold": 5000,
+                        "style": "austin",
+                        "always_enabled": true
+                    }
+                }
+            ]
+        },
+        {
+            "type": "prompt",
             "alignment": "left",
             "newline": true,
             "segments": [
@@ -145,6 +167,7 @@
         "back": "accent",
         "terminal": "#000000",
         "root": "#FFE96F",
+        "warn": "#FF9248",
         "error": "#F1184C",
         "transient": "#D2FF5E",
         "python-fore": "#FFD43B",
