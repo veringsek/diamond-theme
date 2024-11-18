@@ -1,10 +1,11 @@
 {
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
     "version": 3,
+    "theme_version": "1.0.0",
     "console_title_template": "{{ if .Root }} ⚡ {{ end }}{{ .UserName }} 📁 {{ .Folder }}",
     "transient_prompt": {
         "type": "text",
-        "template": "\ue5ff {{ .PWD }} \n{{ if .Root }}\uf007{{ else }}\uf2c0{{ end }} {{ .PromptCount }} ❯ ",
+        "template": "\uE5FF {{ .PWD }} \n{{ if .Root }}\uF007{{ else }}\uF2C0{{ end }} {{ .PromptCount }} ❯ ",
         "newline": true,
         "style": "plain",
         "foreground": "p:transient",
@@ -88,10 +89,10 @@
                     "foreground": "p:fore",
                     "background": "p:transient",
                     "background_templates": [
-                        "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
-                        "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#F26D50{{ end }}",
-                        "{{ if gt .Ahead 0 }}#89D1DC{{ end }}",
-                        "{{ if gt .Behind 0 }}#F17C37{{ end }}"
+                        "{{ if or (.Working.Changed) (.Staging.Changed) }}p:git-changed{{ end }}",
+                        "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:git-match{{ end }}",
+                        "{{ if gt .Ahead 0 }}p:git-ahead{{ end }}",
+                        "{{ if gt .Behind 0 }}p:git-behind{{ end }}"
                     ],
                     "properties": {
                         "cache_duration": "none",
@@ -149,11 +150,14 @@
         "python-back": "#306998",
         "node-fore": "#303030",
         "node-back": "#68A063",
+        "git-changed": "#FF9248",
+        "git-both": "#F26D50",
+        "git-ahead": "#89D1DC",
+        "git-behind": "#F17C37",
         "--old-transient-error": "#EF5350",
         "--old-git-foreground": "#193549",
         "--old-error-foreground": "#242424"
     },
     "accent_color": "#0099F8",
-    "terminal_background": "#000000",
-    "theme_version": "1.0.0"
+    "terminal_background": "#000000"
 }
