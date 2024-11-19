@@ -5,6 +5,7 @@
     "console_title_template": "{{ if .Root }} ⚡ {{ end }}{{ .UserName }} 📁 {{ .Folder }}",
     "transient_prompt": {
         "type": "text",
+        "newline": true,
         "template": "\uE5FF {{ .PWD }} \n{{ if .Root }}\uF007{{ else }}\uF2C0{{ end }} {{ .PromptCount }} ❯ ",
         "style": "plain",
         "foreground": "p:transient",
@@ -18,40 +19,8 @@
     "blocks": [
         {
             "type": "prompt",
-            "alignment": "right",
-            "segments": [
-                {
-                    "type": "text",
-                    "template": " {{ if gt .Code 0 }} [{{ .Code }}] {{ reason .Code }}{{ end }} ",
-                    "style": "diamond",
-                    "leading_diamond": "\uE0B2",
-                    "trailing_diamond": "\uE0B0",
-                    "foreground": "p:base",
-                    "background": "p:error",
-                    "properties": {
-                        "always_enabled": true,
-                        "cache_duration": "none"
-                    }
-                },
-                {
-                    "type": "executiontime",
-                    "template": "  {{ .FormattedMs }} ",
-                    "newline": true,
-                    "style": "diamond",
-                    "leading_diamond": "\uE0B2",
-                    "trailing_diamond": "\uE0B0",
-                    "foreground": "p:base",
-                    "background": "p:warn",
-                    "properties": {
-                        "threshold": 5000,
-                        "style": "austin"
-                    }
-                }
-            ]
-        },
-        {
-            "type": "prompt",
             "alignment": "left",
+            "newline": true,
             "segments": [
                 {
                     "type": "python",
@@ -117,7 +86,7 @@
                 },
                 {
                     "type": "project",
-                    "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Name }} {{ .Name }}{{ end }}{{ if .Version }} {{.Version}}{{ end }}{{ end }} ",
+                    "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Name }} <b>{{ .Name }}</b>{{ end }}{{ if .Version }} v{{.Version}}{{ end }}{{ end }} ",
                     "style": "powerline",
                     "powerline_symbol": "",
                     "foreground": "p:base",
@@ -143,6 +112,39 @@
                         "cache_duration": "none",
                         "fetch_stash_count": true,
                         "fetch_status": true
+                    }
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "right",
+            "segments": [
+                {
+                    "type": "executiontime",
+                    "template": "  {{ .FormattedMs }} ",
+                    "newline": true,
+                    "style": "diamond",
+                    "leading_diamond": "\uE0B2",
+                    "trailing_diamond": "\uE0B0",
+                    "foreground": "p:base",
+                    "background": "p:warn",
+                    "properties": {
+                        "threshold": 0,
+                        "style": "austin"
+                    }
+                },
+                {
+                    "type": "text",
+                    "template": " {{ if gt .Code 0 }} [{{ .Code }}] {{ reason .Code }}{{ end }} ",
+                    "style": "diamond",
+                    "leading_diamond": "\uE0B2",
+                    "trailing_diamond": "\uE0B0",
+                    "foreground": "p:base",
+                    "background": "p:error",
+                    "properties": {
+                        "always_enabled": true,
+                        "cache_duration": "none"
                     }
                 }
             ]
