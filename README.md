@@ -8,13 +8,15 @@ Diamond is an Oh My Posh theme.
 
 Diamond shows most information on the 1st layer, leaving it clean on the 2nd layer for more space to input command. Executed command lines are simplified and numbered for easier locating.
 
-Other than the basic information such as error and Git, Diamond also supports Node.js and Python Venv to be shown if activated.
+Other than the basic information such as error and Git, Diamond also supports Node.js and Python Venv to be shown if activated. With some specific files present, Diamond can show a project's name and version as well.
 
 ![error](./imgs/error.png)
 
 ![node](./imgs/node.png)
 
 ![python](./imgs/python.png)
+
+![project](./imgs/project.png)
 
 Diamond supports system accent color. Keep the system accent color solid and dark for readibility.
 
