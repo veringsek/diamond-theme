@@ -1,6 +1,6 @@
-# Diamond Theme
+# Diamond
 
-This is an Oh My Posh theme.
+Diamond is an Oh My Posh theme.
 
 ![main](./imgs/main.png)
 
