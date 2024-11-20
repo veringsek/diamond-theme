@@ -16,6 +16,16 @@ Other than the basic information such as error and Git, Diamond also supports No
 
 ![python](./imgs/python.png)
 
+Diamond supports system accent color. Keep the system accent color solid and dark for readibility.
+
+![accent](./imgs/accent.png)
+
+## Requirement
+
+Diamond is by design a dark theme, so keep the system accent color solid and dark, and the terminal background color should be black, or at least, near-black.
+
+The support of Python Venv also needs a helper line to hide the default Venv indicator, check [the PowerShell profile](./Microsoft.PowerShell_profile.ps1).
+
 ## Usage
 
 Follow the official instruction [here](https://ohmyposh.dev/docs/installation/windows) and don't use `Install-Module oh-my-posh` since that is deprecated. Instead, install Oh My Posh by
