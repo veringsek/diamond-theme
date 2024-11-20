@@ -173,7 +173,7 @@
         "foreground": "p:base"
     },
     "palette": {
-        "tone": "#0099F8",
+        "tone": "#056099",
         "base": "#EEEEEE",
         "terminal": "#000000",
         "root": "#FFE96F",
@@ -192,5 +192,5 @@
         "--old-transient-error": "#EF5350",
         "--old-error-foreground": "#242424"
     },
-    "accent_color": "#0099F8"
+    "accent_color": "#056099"
 }
