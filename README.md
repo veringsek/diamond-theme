@@ -28,6 +28,8 @@ Diamond is by design a dark theme, so keep the system accent color solid and dar
 
 The support of Python Venv also needs a helper line to hide the default Venv indicator, check [the PowerShell profile](./Microsoft.PowerShell_profile.ps1).
 
+Diamond is designed along with PowerShell 7 and [Maple Mono SC NF 4.2](https://github.com/subframe7536/maple-font).
+
 ## Usage
 
 Follow the official instruction [here](https://ohmyposh.dev/docs/installation/windows) and don't use `Install-Module oh-my-posh` since that is deprecated. Instead, install Oh My Posh by
